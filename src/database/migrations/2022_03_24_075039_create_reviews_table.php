@@ -18,6 +18,7 @@ return new class extends Migration
             $table->string('name', 100);
             $table->string('mail', 100);
             $table->integer('gender');
+            $table->integer('age');
             $table->string('review',100);//レビュー内容
             $table->integer('opinion');//評価値
             $table->bigInteger('user_id')->unsigned();//ユーザid

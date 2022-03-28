@@ -10,11 +10,11 @@
 <body class="font-mono tracking-wider">
 <header class="bg-white shadow-lg w-full h-16 fixed z-10">
     <div class="h-full max-w-screen-lg mx-auto flex justify-between px-5 items-center">
-        <h2 class="text-2xl tracking-wider"><a href="#">Hiyokko Engineer</a></h2>
+        <h2 class="text-2xl tracking-wider"><a href="/">Hiyokko Engineer</a></h2>
         <ul class="flex">
             <li class="text-base h-full px-3 tracking-wider"><a href="#">ログイン</a></li>
-            <li class="text-base h-full px-3 tracking-wider"><a href="#">一覧</a></li>
-            <li class="text-base h-full pl-20 tracking-wider"><a href="#">東谷<span>さん</span></a></li>
+            <li class="text-base h-full px-3 tracking-wider"><a href="/">一覧</a></li>
+            <li class="text-base h-full pl-20 tracking-wider">東谷<span>さん</span></li>
         </ul>
     </div>
 </header>

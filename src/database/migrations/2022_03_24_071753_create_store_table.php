@@ -15,7 +15,7 @@ class CreateStoreTable extends Migration
     {
         Schema::create('stores', function (Blueprint $table) {
             $table->increments('id');//id
-            $table->string('review',100);//レビュー内容
+            $table->integer('review');//評価値
             $table->bigInteger('user_id')->unsigned();//ユーザーテーブルid
             $table->timestamps();//タイムスタンプ
 

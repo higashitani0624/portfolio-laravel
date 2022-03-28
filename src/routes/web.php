@@ -14,6 +14,9 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
+Route::get('/review/{id}','App\Http\Controllers\ReviewController@showInputForm')->name('review.input');
+Route::post('/review/{id}','App\Http\Controllers\ReviewController@inputSession');
+Route::get('/confirm/{id}','App\Http\Controllers\ReviewController@showConfirmForm')->name('review.confirm');
+Route::post('/confirm/{id}','App\Http\Controllers\ReviewController@inputConfirm');
+Route::get('/confirm','App\Http\Controllers\ReviewController@endConfirm')->name('review.end');
 Auth::routes();
-
-Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
