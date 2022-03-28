@@ -13,3 +13,4 @@ class HomeController extends Controller
         $users = User::all();
         return view('home',['users' => $users,]);
     }
+}
