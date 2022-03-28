@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Route;
 | contains the "web" middleware group. Now create something great!
 |
 */
+
 Route::get('/', 'App\Http\Controllers\HomeController@index')->name('home.index');
 Route::get('/review/{id}','App\Http\Controllers\ReviewController@showInputForm')->name('review.input');
 Route::post('/review/{id}','App\Http\Controllers\ReviewController@inputSession');
