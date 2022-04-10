@@ -12,9 +12,17 @@
     <div class="h-full max-w-screen-lg mx-auto flex justify-between px-5 items-center">
         <h2 class="text-2xl tracking-wider"><a href="/">Hiyokko Engineer</a></h2>
         <ul class="flex">
-            <li class="text-base h-full px-3 tracking-wider"><a href="#">ログイン</a></li>
+        @if(Auth::check())
+            <a href="{{route('customer.info')}}"><li class="text-base h-full tracking-wider">{{Auth::user()->name}}<span>さん専用ページ</span></li></a>
+            <a href="#" id="logout" class=" pl-5">ログアウト</a>
+            <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+              @csrf
+            </form>
+        @else
+            <li class="text-base h-full px-3 tracking-wider"><a href="/login">ログイン</a></li>
+            <li class="text-base h-full px-3 tracking-wider"><a href="/register">サインアップ</a></li> 
+        @endif
             <li class="text-base h-full px-3 tracking-wider"><a href="/">一覧</a></li>
-            <li class="text-base h-full pl-20 tracking-wider">東谷<span>さん</span></li>
         </ul>
     </div>
 </header>
@@ -24,6 +32,14 @@
 <footer class="bg-black h-10 w-full items-center flex">
     <p class="text-center text-white mx-auto">©︎Hiyokko Engineer</p>
 </footer>
+@if(Auth::check())
+  <script>
+    document.getElementById('logout').addEventListener('click', function(event) {
+      event.preventDefault();
+      document.getElementById('logout-form').submit();
+    });
+  </script>
+@endif
 @yield('scripts')
 </body>
 </html>
