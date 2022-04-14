@@ -1,17 +1,17 @@
-@extends('layouts.app')
+@extends('layout')
 
 @section('content')
-<div class="container">
-    <div class="row justify-content-center">
+<div class="w-3/5 mx-auto pt-60 h-screen">
+    <div class="bg-yellow-100 rounded mx-auto pb-10">
         <div class="col-md-8">
-            <div class="card">
-                <div class="card-header">{{ __('Register') }}</div>
+            <div class="w-2/5 mx-auto">
+                <div class="text-center text-3xl py-10">{{ __('Sign Up') }}</div>
 
-                <div class="card-body">
+                <div class="">
                     <form method="POST" action="{{ route('register') }}">
                         @csrf
 
-                        <div class="row mb-3">
+                        <div class="flex justify-between py-5 text-xl">
                             <label for="name" class="col-md-4 col-form-label text-md-end">{{ __('Name') }}</label>
 
                             <div class="col-md-6">
@@ -25,7 +25,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="flex justify-between py-5 text-xl">
                             <label for="email" class="col-md-4 col-form-label text-md-end">{{ __('Email Address') }}</label>
 
                             <div class="col-md-6">
@@ -39,7 +39,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="flex justify-between py-5 text-xl">
                             <label for="password" class="col-md-4 col-form-label text-md-end">{{ __('Password') }}</label>
 
                             <div class="col-md-6">
@@ -53,7 +53,7 @@
                             </div>
                         </div>
 
-                        <div class="row mb-3">
+                        <div class="flex justify-between py-5 text-xl">
                             <label for="password-confirm" class="col-md-4 col-form-label text-md-end">{{ __('Confirm Password') }}</label>
 
                             <div class="col-md-6">
@@ -62,8 +62,8 @@
                         </div>
 
                         <div class="row mb-0">
-                            <div class="col-md-6 offset-md-4">
-                                <button type="submit" class="btn btn-primary">
+                            <div class="col-md-6 offset-md-4 py-5 text-center">
+                                <button type="submit" class="text-xl py-3 flex px-16 bg-yellow-300 rounded-full mx-auto text-center">
                                     {{ __('Register') }}
                                 </button>
                             </div>

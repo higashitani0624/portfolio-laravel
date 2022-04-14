@@ -95,7 +95,7 @@ class ReviewController extends Controller
         ]);
     }
 
-    public function inputConfirm(int $id,){
+    public function inputConfirm(int $id){
         $now_user = User::find($id);
 
         $review = new Review();
