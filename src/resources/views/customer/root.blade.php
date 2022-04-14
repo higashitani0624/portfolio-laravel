@@ -39,6 +39,7 @@
                     <button type="submit" class="px-16 py-5 text-white text-xl bg-yellow-500 rounded-full mx-auto">検索</button>
                 </div>
             </form>
+            @for($n = 0; $n < count($root_store_names); $n++)
             <table class="pt-20 bg-yellow-200 border-4 w-full mt-20 border-gray-600">
                 <thead>
                     <tr>
@@ -50,19 +51,18 @@
                         <th class="text-black border-4 table-fixed border-gray-600">ご意見</th>
                     </tr>
                 </thead>
-                @foreach($reviews as $review)
-                    @if ($review != '[]')
+                @foreach($roots[$n] as $root)
                 <tbody class="bg-yellow-100">
                     <tr>
-                        <td class="border-4 text-center border-gray-600">{{ $store_name }}</td>
-                        <td class="border-4 text-center border-gray-600">{{ $review->name }}</td>
-                        <?php if($review->gender == 0){
+                        <td class="border-4 text-center border-gray-600">{{ $root_store_names[$n]->name }}</td>
+                        <td class="border-4 text-center border-gray-600">{{ $root->name }}</td>
+                        <?php if($root->gender == 0){
                             $gender = '女性';
-                        }elseif($review->gender == 1){
+                        }elseif($root->gender == 1){
                             $gender = '男性';
                         } ?>
                         <td class="border-4 text-center border-gray-600">{{ $gender }}</td>
-                        <?php $pref = $review->age;
+                        <?php $pref = $root->age;
                         switch ($pref){
                         case 1:
                             $age = '10代以下';
@@ -84,7 +84,7 @@
                             break;
                         }?>
                         <td class="border-4 text-center border-gray-600">{{ $age }}</td>
-                        <?php $pref = $review->opinion;
+                        <?php $pref = $root->opinion;
                         switch ($pref){
                         case 1:
                             $opinion = '★';
@@ -103,15 +103,14 @@
                             break;
                         }?>
                         <td class="border-4 text-center border-gray-600">{{ $opinion }}</td>
-                        <td class="border-4 text-center border-gray-600">{{ $review->review }}</td>
-                        <td class="border-4 text-center border-gray-600 bg-yellow-200"><a href="{{ route('customer.detail',$review->id) }}">詳細</a></td>
+                        <td class="border-4 text-center border-gray-600">{{ $root->review }}</td>
+                        <td class="border-4 text-center border-gray-600 bg-yellow-200"><a href="{{ route('customer.detail',$root->id) }}">詳細</a></td>
                     </tr>
                 </tbody>
-                @else
-                    <p>{{ $error_message }}</p>
-                    @endif
-                    @endforeach
+                @endforeach
             </table>
+            @endfor
+            </div>
         </div>
     </div>
 @endsection

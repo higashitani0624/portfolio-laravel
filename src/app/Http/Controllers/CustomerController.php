@@ -11,12 +11,30 @@ class CustomerController extends Controller
 {
     //レビュー一覧表示機能
     public function showInfoTable(){
-        $users = User::find(Auth::id());
-        $reviews = $users->reviews()->get();
-        return view('customer/show',[
-            'reviews' => $reviews,
-            'store_name' => $users->name,
-        ]);
+        // お店ユーザーの場合
+        if(Auth::user()->status > 2){
+            $users = User::find(Auth::id());
+            $reviews = $users->reviews()->get();
+            return view('customer/show',[
+                'reviews' => $reviews,
+                'store_name' => $users->name,
+                'error_message' => 'まだレビューがありません。',
+            ]);
+        }
+        //rootユーザーの場合
+        if(Auth::user()->status <= 2){
+            $users_id = User::all()->pluck('id')->toArray();
+            $i = 0;
+            foreach($users_id as $user_id){
+                $store_names[$i] = User::whereId($user_id)->first();
+                $store_reviews[$i] = Review::whereUser_id($user_id)->get();
+                $i++;
+            }
+            return view('customer/root',[
+                'root_store_names' => $store_names,
+                'roots' => $store_reviews,
+            ]);
+        }
     }
 
     //レビュー詳細表示機能
@@ -53,10 +71,12 @@ class CustomerController extends Controller
         }elseif(!empty($keywords)){
             $query->where('review','LIKE',$keywords);
         }
+        
         return view('customer/show',[
             'reviews' => $query->get(),
             'store_name' => $users->name,
             'gender' => $created_first,
+            'error_message' => '検索条件に合致するレビューが有りません',
         ]);
     }
 }
