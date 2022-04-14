@@ -15,7 +15,6 @@ class RootTableSeeder extends Seeder
      */
     public function run()
     {
-        DB::table('users')->insert([
             DB::table('users')->insert([
                 'name' => 'root',
                 'email' => 'higayu624@gmail.com',
@@ -24,6 +23,5 @@ class RootTableSeeder extends Seeder
                 'created_at' => Carbon::now(),
                 'updated_at' => Carbon::now(),
             ]);
-        ]);
     }
 }

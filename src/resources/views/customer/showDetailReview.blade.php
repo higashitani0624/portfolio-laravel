@@ -79,6 +79,11 @@
     </div>
     <div class="flex text-center">
     <a class="mx-auto" href="{{route('customer.info')}}"><button class="px-20 py-5 rounded-full bg-yellow-300 text-center">レビュー確認画面</button></a>
+    <form action="{{route('customer.detail',$reviews->id)}}" method="post">
+        @csrf
+        <button class="px-20 py-5 rounded-full bg-red-500 text-center" onclick='return confirm("削除しますか？");'>レビュー削除</button>
+        <input type="hidden" value="{{$reviews->id}}" name="review_id"></input>
+    </form>
     </div>
 </div>
 </div>

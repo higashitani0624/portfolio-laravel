@@ -25,7 +25,7 @@ Route::group(['middleware' => 'auth'], function() {
     Route::get('/customer','App\Http\Controllers\CustomerController@showInfoTable')->name('customer.info');
     Route::post('/customer','App\Http\Controllers\CustomerController@serchInfo');
     Route::get('/customer/{id}','App\Http\Controllers\CustomerController@showDetailReview')->name('customer.detail');
-    Route::post('/customer/{id}','App\Http\Controllers\CustomerController@showDetailReview');
+    Route::post('/customer/{id}','App\Http\Controllers\CustomerController@deleteReview');
 });
 
 Auth::routes();

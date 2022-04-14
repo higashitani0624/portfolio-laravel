@@ -6,7 +6,7 @@
     <section class="h-full w-full mt-10">
         @foreach($users as $user)
         <div class="h-60 mb-10 flex bg-gray-100">
-            <div class="w-2/4"><img class="w-full overflow-hidden h-auto " src="{{asset('src/assets/home-office-gc0971d6be_1920.jpg')}}"></div>
+            <div class="w-2/4"><img class="w-full h-auto" src="{{ asset('img/home-office-gc0971d6be_1920.jpg')}}"></div>
             <div class="w-2/4 py-10 pl-20">
                 <h4 class="text-2xl tracking-wider">{{$user->name}}<h4>
                 <p class="text-lg mt-8 mb-5 text-gray-400 tracking-widest">評価　：<span class="pl-5">⭐️⭐️⭐️⭐️⭐️　(5.0)</span></p>

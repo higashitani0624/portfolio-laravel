@@ -79,4 +79,13 @@ class CustomerController extends Controller
             'error_message' => '検索条件に合致するレビューが有りません',
         ]);
     }
+
+    //レビュー削除機能
+    public function deleteReview(Request $request){
+        $review_id = $request->input('review_id');
+
+        $content = Review::find($review_id);
+        $content -> delete();
+        return redirect()->route('home.index');
+    }
 }
