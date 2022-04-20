@@ -2,8 +2,8 @@
 
 @section('content')
 <div class="pt-40">
-<div class="w-3/5 mx-auto bg-yellow-100 p-10">
-    <p class="w-4/5 mx-auto text-center">レビュー詳細</p>
+<div class="w-3/5 mx-auto bg-gray-100 p-10">
+    <p class="w-4/5 mx-auto text-center text-2xl">レビュー詳細</p>
     <div class="w-4/5 mx-auto">
         <div>
             <p>店名</p><span>{{ $store_name }}</span>
@@ -78,10 +78,10 @@
         </div>
     </div>
     <div class="flex text-center">
-    <a class="mx-auto" href="{{route('customer.info')}}"><button class="px-20 py-5 rounded-full bg-yellow-300 text-center">レビュー確認画面</button></a>
+    <a class="mx-auto" href="{{route('customer.info')}}"><button class="px-20 py-5 rounded-full bg-yellow-500 text-center text-white">レビュー確認画面</button></a>
     <form action="{{route('customer.detail',$reviews->id)}}" method="post">
         @csrf
-        <button class="px-20 py-5 rounded-full bg-red-500 text-center" onclick='return confirm("削除しますか？");'>レビュー削除</button>
+        <button class="px-20 py-5 rounded-full bg-red-700 text-white text-center" onclick='return confirm("削除しますか？");'>レビュー削除</button>
         <input type="hidden" value="{{$reviews->id}}" name="review_id"></input>
     </form>
     </div>

@@ -3,7 +3,7 @@
 @section('content')
 <div class="mx-auto max-w-screen-md px-5 h-full pt-40 pb-20">
     <p class="text-center text-2xl pb-10">{{$current_user->name}}へのご意見をご確認ください!</p>
-    <form action="{{route('review.confirm',['id' => $current_user->id])}}" method = "post" class="w-full rounded p-14 bg-yellow-100">
+    <form action="{{route('review.confirm',['id' => $current_user->id])}}" method = "post" class="w-full rounded p-14 bg-gray-100">
         @csrf
         <div class="text-xl">
             <p class="text-xl">メール　　</p>

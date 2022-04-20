@@ -3,7 +3,7 @@
 @section('content')
     <div class="w-4/5 mx-auto">
         <div class="pt-40">
-            <form class="bg-yellow-100 p-20" action="{{route('customer.info')}}" method="post">
+            <form class="bg-gray-100 p-20" action="{{route('customer.info')}}" method="post">
                 @csrf
                 <div class="w-4/5 mx-auto text-center text-2xl">レビュー管理画面<?php if(!empty($gender))echo $gender; ?></div>
                 <div class="inline-block mr-5 p-10">
@@ -39,29 +39,29 @@
                     <button type="submit" class="px-16 py-5 text-white text-xl bg-yellow-500 rounded-full mx-auto">検索</button>
                 </div>
             </form>
-            <table class="pt-20 bg-yellow-200 border-4 w-full mt-20 border-gray-600">
+            <table class="pt-20 bg-gray-800 border-2 w-full mt-20 border-gray-600">
                 <thead>
                     <tr>
-                        <th class="border-4 text-black able-fixed border-gray-600">店名</th>
-                        <th class="text-black border-4 table-fixed border-gray-600">氏名</th>
-                        <th class="text-black border-4 table-fixed border-gray-600">性別</th>
-                        <th class="text-black border-4 table-fixed border-gray-600">年代</th>
-                        <th class="text-black border-4 table-fixed border-gray-600">評価</th>
-                        <th class="text-black border-4 table-fixed border-gray-600">ご意見</th>
+                        <th class="text-white able-fixed border-gray-600">店名</th>
+                        <th class="text-white table-fixed border-gray-600">氏名</th>
+                        <th class="text-white table-fixed border-gray-600">性別</th>
+                        <th class="text-white table-fixed border-gray-600">年代</th>
+                        <th class="text-white table-fixed border-gray-600">評価</th>
+                        <th class="text-white table-fixed border-gray-600">ご意見</th>
                     </tr>
                 </thead>
                 @foreach($reviews as $review)
                     @if ($review != '[]')
-                <tbody class="bg-yellow-100">
+                <tbody class="bg-gray-100">
                     <tr>
-                        <td class="border-4 text-center border-gray-600">{{ $store_name }}</td>
-                        <td class="border-4 text-center border-gray-600">{{ $review->name }}</td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $store_name }}</td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $review->name }}</td>
                         <?php if($review->gender == 0){
                             $gender = '女性';
                         }elseif($review->gender == 1){
                             $gender = '男性';
                         } ?>
-                        <td class="border-4 text-center border-gray-600">{{ $gender }}</td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $gender }}</td>
                         <?php $pref = $review->age;
                         switch ($pref){
                         case 1:
@@ -83,7 +83,7 @@
                             $age = '60代以上';
                             break;
                         }?>
-                        <td class="border-4 text-center border-gray-600">{{ $age }}</td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $age }}</td>
                         <?php $pref = $review->opinion;
                         switch ($pref){
                         case 1:
@@ -102,9 +102,9 @@
                             $opinion = '★★★★★';
                             break;
                         }?>
-                        <td class="border-4 text-center border-gray-600">{{ $opinion }}</td>
-                        <td class="border-4 text-center border-gray-600">{{ $review->review }}</td>
-                        <td class="border-4 text-center border-gray-600 bg-yellow-200"><a href="{{ route('customer.detail',$review->id) }}">詳細</a></td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $opinion }}</td>
+                        <td class="border-b-2 text-center border-gray-600">{{ $review->review }}</td>
+                        <td class="border-b-2 text-center border-gray-600 bg-yellow-500 text-white"><a href="{{ route('customer.detail',$review->id) }}">詳細</a></td>
                     </tr>
                 </tbody>
                 @else

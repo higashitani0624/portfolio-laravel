@@ -8,7 +8,7 @@
   <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet">
 </head>
 <body class="font-mono tracking-wider">
-<header class="bg-white shadow-lg w-full h-16 fixed z-10">
+<header class="bg-gray-800 text-white shadow-lg w-full h-16 fixed z-10">
     <div class="h-full max-w-screen-lg mx-auto flex justify-between px-5 items-center">
         <h2 class="text-2xl tracking-wider"><a href="/">Hiyokko Engineer</a></h2>
         <ul class="flex">
