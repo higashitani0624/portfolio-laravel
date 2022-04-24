@@ -14,6 +14,7 @@
             </div>
         </div>
         @endforeach
+        {{ $users -> links() }}
     </section>
 </div>
 @endsection
